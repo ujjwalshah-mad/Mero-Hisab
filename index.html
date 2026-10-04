@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>नेपाली बहुउद्देश्यीय वित्तीय क्याल्कुलेटर - Ujjwalwebdevelopment</title>
+  <title>नेपाली बहुउद्देश्यीय वित्तीय क्याल्कुलेटर - Ujjwal Shah</title>
   <style>
     :root {
       --bg: #f8fafc;
@@ -725,26 +725,75 @@
     #sideDrawer.open {
       right: 0;
     }
+    .drawer-header {
+      border-bottom: 1px solid var(--hr-border);
+      padding-bottom: 12px;
+      margin-bottom: 6px;
+    }
+    .drawer-category-header {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(99, 102, 241, 0.14));
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-top: 10px;
+      margin-bottom: 4px;
+    }
+    [data-theme="dark"] .drawer-category-header {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(147, 51, 234, 0.25));
+      border-color: rgba(147, 51, 234, 0.4);
+      color: #c4b5fd;
+    }
+    .drawer-category-header::before {
+      content: "";
+      width: 5px;
+      height: 12px;
+      border-radius: 3px;
+      background: var(--accent);
+    }
     .drawer-item {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 13.5px;
-      color: var(--drawer-item-color);
+      padding: 11px 14px;
+      border-radius: 14px;
+      font-size: 13px;
+      color: var(--text);
+      background-color: var(--card-bg);
+      border: 1.2px solid var(--card-border);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
       cursor: pointer;
-      font-weight: 500;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    [data-theme="dark"] .drawer-item {
+      background-color: var(--input-bg);
+      border-color: var(--card-border);
     }
     .drawer-item:hover, .drawer-item.active {
-      background-color: rgba(99, 102, 241, 0.12);
+      border-color: var(--accent);
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(99, 102, 241, 0.15));
       color: var(--accent);
-      font-weight: 600;
+      transform: translateX(-3px);
+      box-shadow: 0 3px 10px rgba(99, 102, 241, 0.18);
     }
-    .drawer-header {
-      border-bottom: 1px solid var(--hr-border);
-      padding-bottom: 14px;
-      margin-bottom: 8px;
+    .drawer-item.danger-item {
+      background: rgba(239, 68, 68, 0.06);
+      border-color: rgba(239, 68, 68, 0.3);
+      color: #ef4444;
+      margin-top: 8px;
+    }
+    .drawer-item.danger-item:hover {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: #ef4444;
+      color: #dc2626;
     }
   
     /* Floating Action Button (Matches Image 29 bottom right) */
@@ -947,6 +996,48 @@
     }
 
     /* Land Info Banner (Image 29 blue card) */
+    
+    /* Land Measurement Sample Figure Box (Matching Image 1) */
+    .land-sample-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
+      margin: 4px 0 8px 0;
+      transition: all 0.2s ease;
+    }
+    [data-theme="dark"] .land-sample-card {
+      background: #0f121d;
+      border-color: #25203b;
+    }
+    .land-sample-diagram-wrap {
+      width: 100%;
+      max-width: 270px;
+      height: 145px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .land-sample-diagram-wrap svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .sample-fig-caption {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
     .land-info-card {
       background: rgba(59, 130, 246, 0.08);
       border: 1px solid rgba(59, 130, 246, 0.25);
@@ -1071,36 +1162,36 @@
 <div id="sideDrawer">
   <div class="drawer-header">
     <div style="display:flex; justify-content:space-between; align-items:center;">
-      <span style="font-weight:700; font-size:15.5px;" id="drawerBrand">Ujjwalwebdevelopment</span>
+      <span style="font-weight:700; font-size:15.5px;" id="drawerBrand">Ujjwal Shah</span>
       <button onclick="toggleDrawer()" style="background:none; border:none; color:var(--text-muted); font-size:20px; cursor:pointer;">✕</button>
     </div>
     <div style="font-size:11.5px; color:var(--accent); margin-top:3px; font-weight:600;" id="drawerLocation">Siraha, Nepal</div>
   </div>
   
-  <div style="font-size:10.5px; color:var(--text-muted); text-transform:uppercase; margin:6px 0 3px 8px; font-weight:700;" data-i18n="cat_loan">ब्याज तथा ऋण</div>
+  <div class="drawer-category-header" data-i18n="cat_loan">ब्याज तथा ऋण</div>
   <div class="drawer-item" onclick="switchModule('compound')">📈 <span data-i18n="mod_compound">चक्रीय ब्याज</span></div>
   <div class="drawer-item" onclick="switchModule('simple')">％ <span data-i18n="mod_simple">साधारण ब्याज</span></div>
   <div class="drawer-item" onclick="switchModule('sayakada')">💰 <span data-i18n="mod_sayakada">सयकडा (गाउँघर ब्याज)</span></div>
   <div class="drawer-item" onclick="switchModule('tamasuk')">📜 <span data-i18n="mod_tamasuk">कपाली लिखत</span></div>
   <div class="drawer-item" onclick="switchModule('emi')">🏦 <span data-i18n="mod_emi">EMI क्याल्कुलेटर</span></div>
 
-  <div style="font-size:10.5px; color:var(--text-muted); text-transform:uppercase; margin:10px 0 3px 8px; font-weight:700;" data-i18n="cat_property">जग्गा तथा सम्पत्ति</div>
+  <div class="drawer-category-header" data-i18n="cat_property">जग्गा तथा सम्पत्ति</div>
   <div class="drawer-item" onclick="switchModule('land')">📐 <span data-i18n="mod_land">जग्गा क्षेत्रफल</span></div>
   <div class="drawer-item" onclick="switchModule('landSplit')">⚖ <span data-i18n="mod_split">जग्गा भागबन्डा</span></div>
   <div class="drawer-item" onclick="switchModule('roadCut')">🛣 <span data-i18n="mod_road">बाटो कटौती</span></div>
 
-  <div style="font-size:10.5px; color:var(--text-muted); text-transform:uppercase; margin:10px 0 3px 8px; font-weight:700;" data-i18n="cat_trade">व्यापार तथा बिल</div>
+  <div class="drawer-category-header" data-i18n="cat_trade">व्यापार तथा बिल</div>
   <div class="drawer-item" onclick="switchModule('gold')">🪙 <span data-i18n="mod_gold">सुन-चाँदी</span></div>
   <div class="drawer-item" onclick="switchModule('currency')">💱 <span data-i18n="mod_curr">मुद्रा रूपान्तरण</span></div>
   <div class="drawer-item" onclick="switchModule('profitloss')">📊 <span data-i18n="mod_profitloss">नाफा नोक्सान (Markup)</span></div>
   <div class="drawer-item" onclick="switchModule('reports')">📑 <span data-i18n="mod_reports">विस्तृत रिपोर्ट (Reports)</span></div>
   <div class="drawer-item" onclick="switchModule('widget')">📱 <span data-i18n="mod_widget">मिति विजेट सेटिङ्स</span></div>
   <div class="drawer-item" onclick="switchModule('salaryTax')">📑 <span data-i18n="mod_tax">तलब आयकर</span></div>
-  
   <div class="drawer-item" onclick="switchModule('electricity')">⚡ <span data-i18n="mod_nea">विद्युत महसुल</span></div>
   <div class="drawer-item" onclick="switchModule('history')">🕒 <span data-i18n="mod_history">हिसाब इतिहास</span></div>
-    <div class="drawer-item" onclick="switchModule('suggestion')">💡 <span data-i18n="mod_suggest">सुझाव पठाउनुहोस्</span></div>
-  <div class="drawer-item" onclick="resetAppWithDualConfirmation()" style="color:#ef4444; border-top:1px solid var(--hr-border); margin-top:6px; padding-top:12px;">
+  <div class="drawer-item" onclick="switchModule('suggestion')">💡 <span data-i18n="mod_suggest">सुझाव पठाउनुहोस्</span></div>
+  
+  <div class="drawer-item danger-item" onclick="resetAppWithDualConfirmation()">
     🔄 <span data-i18n="mod_reset">एप रिसेट गर्नुहोस् (Reset App)</span>
   </div>
 </div>
@@ -1129,27 +1220,43 @@
         </div>
         <div class="header-titles">
           <h1 id="topBarTitle">चक्रीय ब्याज</h1>
-          <p>Ujjwalwebdevelopment • Siraha</p>
+          <p>Ujjwal Shah • Siraha</p>
         </div>
       </div>
       <div class="header-actions">
         <button class="circle-btn" onclick="switchModule('suggestion')" title="सुझाव">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
         </button>
-        <button class="circle-btn" onclick="switchModule('widget')" title="मिति विजेट">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+        <button class="circle-btn" onclick="switchModule('widget')" title="मिति विजेट" id="btnDynamicCalAction">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="4" width="18" height="17" rx="3.5" stroke="currentColor" stroke-width="1.8" fill="rgba(255,255,255,0.12)"/>
+            <path d="M3 9.5h18" stroke="currentColor" stroke-width="1.6"/>
+            <line x1="8" y1="2" x2="8" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="16" y1="2" x2="16" y2="5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <text x="12" y="18" font-size="8" font-weight="900" fill="currentColor" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" id="topNavCalDayText">4</text>
+          </svg>
         </button>
         <button class="circle-btn" onclick="toggleDrawer()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         </button>
       </div>
     </div>
-    <div class="header-date-strip">
-      <div class="header-date-left">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+        <div class="header-date-strip">
+      <div class="header-date-left" style="display:flex; align-items:center; gap:12px;">
+        <!-- Real Dynamic Calendar Icon Badge (Changes Every Day with Present Date - No Static July 17!) -->
+        <div id="dynamicCalendarIconBadge" style="width:36px; height:38px; background:#ffffff; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.18); display:flex; flex-direction:column; overflow:hidden; flex-shrink:0; border:1px solid rgba(255,255,255,0.9);">
+          <!-- Top Binder Bar with Month -->
+          <div id="dynCalMonthTopBar" style="background:#ef4444; height:13px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-size:7.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.6px;">OCT</div>
+          <!-- Dynamic Present Day Number -->
+          <div id="dynCalDayMainNumber" style="flex:1; display:flex; align-items:center; justify-content:center; font-size:16.5px; font-weight:900; color:#0f172a; line-height:1; font-family:-apple-system, BlinkMacSystemFont, sans-serif;">4</div>
+        </div>
+
         <div style="display:flex; flex-direction:column; gap:2px;">
-          <span id="currentDateStr" style="font-weight:700; font-size:12.5px;">१६ असोज २०८३ बि.सं.</span>
-          <span id="currentAdDateStr" style="font-size:11px; opacity:0.9; color:#e0e7ff; font-weight:500;">📅 2 Oct 2026, Friday (AD)</span>
+          <span id="currentDateStr" style="font-weight:700; font-size:13px; color:#ffffff;">१८ असोज २०८३ बि.सं.</span>
+          <div style="display:flex; align-items:center; gap:6px; font-size:11px; opacity:0.95; color:#e0e7ff; font-weight:500;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span id="currentAdDateStr">4 अक्टोबर २०२६, आइतबार (ई.सं.)</span>
+          </div>
         </div>
       </div>
       <div style="text-align:right;">
@@ -1304,10 +1411,10 @@
           <span class="box-title" data-i18n="lbl_comp_freq">ब्याज चक्रीय अवधि (Compounding Frequency)</span>
         </div>
         <div class="grid-4" style="gap:6px;">
-          <button class="cal-btn" id="cFreqMonthly" onclick="setCompFreq('monthly')">Monthly</button>
-          <button class="cal-btn" id="cFreqQuarterly" onclick="setCompFreq('quarterly')">Quarterly</button>
-          <button class="cal-btn" id="cFreqHalfYearly" onclick="setCompFreq('halfyearly')">Half-Yearly</button>
-          <button class="cal-btn active" id="cFreqAnnually" onclick="setCompFreq('annually')">Annually</button>
+          <button class="cal-btn" id="cFreqMonthly" onclick="setCompFreq('monthly')" data-i18n="freq_monthly">मासिक</button>
+          <button class="cal-btn" id="cFreqQuarterly" onclick="setCompFreq('quarterly')" data-i18n="freq_quarterly">त्रैमासिक</button>
+          <button class="cal-btn" id="cFreqHalfYearly" onclick="setCompFreq('halfyearly')" data-i18n="freq_halfyearly">अर्धवार्षिक</button>
+          <button class="cal-btn active" id="cFreqAnnually" onclick="setCompFreq('annually')" data-i18n="freq_annually">वार्षिक</button>
         </div>
       </div>
 
@@ -1948,6 +2055,38 @@
       <div class="land-info-formula" id="landInfoFormula">Area = L × W</div>
     </div>
 
+    <!-- Measurement Sample Figure Card (Exactly matching Image 1) -->
+    <div class="land-sample-card" id="landSampleCard">
+      <div class="land-sample-diagram-wrap" id="landSampleDiagramWrap">
+        <svg viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rect Body -->
+          <rect x="55" y="28" width="150" height="84" rx="4" stroke="#3b82f6" stroke-width="2.5" fill="rgba(59, 130, 246, 0.08)" />
+          
+          <!-- Corner dots -->
+          <circle cx="55" cy="28" r="4" fill="#6366f1" />
+          <circle cx="205" cy="28" r="4" fill="#6366f1" />
+          <circle cx="205" cy="112" r="4" fill="#6366f1" />
+          <circle cx="55" cy="112" r="4" fill="#6366f1" />
+
+          <!-- 90 Degree Corner Marks -->
+          <path d="M 55,38 L 65,38 L 65,28" stroke="var(--text-muted)" stroke-width="1.3" fill="none" />
+          <path d="M 195,28 L 195,38 L 205,38" stroke="var(--text-muted)" stroke-width="1.3" fill="none" />
+          <path d="M 205,102 L 195,102 L 195,112" stroke="var(--text-muted)" stroke-width="1.3" fill="none" />
+          <path d="M 55,102 L 65,102 L 65,112" stroke="var(--text-muted)" stroke-width="1.3" fill="none" />
+
+          <!-- Labels -->
+          <text x="130" y="20" font-size="12.5" font-weight="800" fill="var(--text)" text-anchor="middle">L (लम्बाइ - Top)</text>
+          <text x="130" y="128" font-size="12.5" font-weight="800" fill="var(--text)" text-anchor="middle">L (लम्बाइ - Bottom)</text>
+          <text x="36" y="74" font-size="12.5" font-weight="800" fill="var(--text)" text-anchor="middle">W (Left)</text>
+          <text x="224" y="74" font-size="12.5" font-weight="800" fill="var(--text)" text-anchor="middle">W (Right)</text>
+        </svg>
+      </div>
+      <div class="sample-fig-caption">
+        <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#2563eb;"></span>
+        <span id="landSampleFigLabel">आयत / वर्गाकार: लम्बाइ (L) × चौडाइ (W)</span>
+      </div>
+    </div>
+
     <!-- Regular Form Inputs Area -->
     <div id="landRegularWrap" style="display:flex; flex-direction:column; gap:12px;">
       <!-- Lengths Container -->
@@ -2158,8 +2297,28 @@
   </div>
 </div>
 
-  <!-- 10. मुद्रा रूपान्तरण र SWAP -->
+  <!-- 10. मुद्रा रूपान्तरण र SWAP (LIVE DAILY RATES & EDITABLE) -->
   <div id="module-currency" class="module-view">
+    <!-- Live Daily Rates Bar -->
+    <div class="form-box" style="padding:12px 14px; gap:8px;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="box-title" style="font-size:13px;">
+          <span id="forexLiveBadge" style="background:#ecfdf5; color:#059669; border:1px solid #a7f3d0; padding:3px 8px; border-radius:8px; font-size:11px; font-weight:700; display:flex; align-items:center; gap:5px;">
+            <span style="width:6px; height:6px; border-radius:50%; background:#10b981; display:inline-block;"></span>
+            आजको दैनिक दर (Live Daily Rates)
+          </span>
+        </span>
+        <button type="button" onclick="syncDailyForexRates(true)" style="background:var(--card-bg); border:1px solid var(--input-border); color:var(--text); padding:4px 10px; border-radius:10px; font-size:11px; font-weight:700; cursor:pointer; display:flex; align-items:center; gap:5px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          रिफ्रेस (Sync)
+        </button>
+      </div>
+      <div style="font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between;" id="forexSyncStatusText">
+        <span>दैनिक विदेशी विनिमय दर स्वतः अपडेट हुन्छ</span>
+        <span id="forexSyncDateTag">आज: ०४ अक्टोबर २०२६</span>
+      </div>
+    </div>
+
     <div class="form-box">
       <span class="box-title">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
@@ -2174,6 +2333,10 @@
         <option value="AED">🇦🇪 AED - UAE Dirham</option>
         <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
         <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+        <option value="QAR">🇶🇦 QAR - Qatari Riyal</option>
+        <option value="MYR">🇲🇾 MYR - Malaysian Ringgit</option>
+        <option value="KWD">🇰🇼 KWD - Kuwaiti Dinar</option>
+        <option value="JPY">🇯🇵 JPY - Japanese Yen (10)</option>
       </select>
     </div>
 
@@ -2207,6 +2370,10 @@
         <option value="AED">🇦🇪 AED - UAE Dirham</option>
         <option value="SAR">🇸🇦 SAR - Saudi Riyal</option>
         <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+        <option value="QAR">🇶🇦 QAR - Qatari Riyal</option>
+        <option value="MYR">🇲🇾 MYR - Malaysian Ringgit</option>
+        <option value="KWD">🇰🇼 KWD - Kuwaiti Dinar</option>
+        <option value="JPY">🇯🇵 JPY - Japanese Yen (10)</option>
       </select>
     </div>
 
@@ -2216,11 +2383,27 @@
       <div style="font-size:11.5px; color:#fef3c7; opacity:0.9;" id="currExchangeRateTag">Live Base Rate: 1 USD = 134.00 NPR</div>
     </div>
 
+    <!-- Today's Daily Rates Table with Custom Rate Editor Option -->
     <div class="form-box">
-      <span class="box-title">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
-        Today's Exchange Rates (NPR Base)
-      </span>
+      <div class="box-header">
+        <span class="box-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2"/></svg>
+          Today's Daily Rates (NPR Base)
+        </span>
+        <button type="button" onclick="toggleCustomRateEditor()" id="btnToggleRateEdit" style="background:none; border:none; color:var(--accent); font-size:11px; font-weight:700; cursor:pointer;">
+          ✏️ दर सम्पादन (Edit)
+        </button>
+      </div>
+
+      <!-- Optional Manual Rate Editor Grid (hidden by default) -->
+      <div id="customRateEditorBox" style="display:none; flex-direction:column; gap:8px; padding:10px; background:var(--input-bg); border-radius:12px; border:1px dashed var(--accent);">
+        <div style="font-size:11px; color:var(--text-muted); font-weight:600;">कुनै पनि मुद्राको दर आफ्नो हिसाबले परिवर्तन गर्न सक्नुहुन्छ:</div>
+        <div id="rateInputsGrid" style="display:grid; grid-template-columns:1fr 1fr; gap:6px;"></div>
+        <button class="btn-save" style="padding:8px; font-size:11.5px; margin-top:4px;" onclick="saveCustomForexRates()">
+          दर सुरक्षित गर्नुहोस् (Save Rates)
+        </button>
+      </div>
+
       <div id="currTableList" style="display:flex; flex-direction:column; gap:8px; margin-top:6px;"></div>
     </div>
   </div>
@@ -2390,11 +2573,8 @@
   <!-- BRANDING & DEVELOPER FOOTER -->
   <div class="dev-footer">
     <div class="dev-row">
-      <span style="font-weight:700; font-size:13.5px;">Ujjwalwebdevelopment</span>
+      <span style="font-weight:700; font-size:13.5px;">Developer: <strong style="color:var(--text);">Ujjwal Shah</strong></span>
       <span style="color:var(--accent); font-size:12px; font-weight:600;">📍 Siraha, Nepal</span>
-    </div>
-    <div style="font-size:12.5px; color:var(--text-muted);">
-      Developer: <strong style="color:var(--text);">Ujjwal Shah</strong>
     </div>
     <div class="dev-contact-links">
       <a href="https://wa.me/9779805986777" target="_blank" class="dev-badge wa">
@@ -2530,6 +2710,7 @@
     populateRateDropdowns();
     updateDaysDropdown('cFromYear','cFromMonth','cFromDay', 16);
     updateDaysDropdown('cToYear','cToMonth','cToDay', 16);
+    updatePresentDates();
   }
 
   function populateMonthDropdowns() {
@@ -2692,7 +2873,12 @@
       msg_no_history: "कुनै सुरक्षित इतिहास छैन",
       modal_name_ph: "व्यक्ति वा संस्थाको नाम (e.g. Ujjwal Shah)",
       modal_loc_ph: "ठेगाना वा स्थान (e.g. Siraha, Nepal)",
-      modal_date_ph: "मिति (Date)"
+      modal_date_ph: "मिति (Date)",
+      freq_monthly: "मासिक",
+      freq_quarterly: "त्रैमासिक",
+      freq_halfyearly: "अर्धवार्षिक",
+      freq_annually: "वार्षिक",
+      lbl_comp_freq: "ब्याज चक्रीय अवधि (Compounding Frequency)"
     },
     en: {
       appName: "Compound Interest",
@@ -2819,7 +3005,12 @@
       msg_no_history: "No saved history records",
       modal_name_ph: "Person / Org Name (e.g. Ujjwal Shah)",
       modal_loc_ph: "Location / Address (e.g. Siraha, Nepal)",
-      modal_date_ph: "Date"
+      modal_date_ph: "Date",
+      freq_monthly: "Monthly",
+      freq_quarterly: "Quarterly",
+      freq_halfyearly: "Half-Yearly",
+      freq_annually: "Annually",
+      lbl_comp_freq: "Compounding Frequency"
     },
     hi: {
       appName: "चक्रवृद्धि ब्याज",
@@ -2946,7 +3137,12 @@
       msg_no_history: "कोई सुरक्षित इतिहास नहीं है",
       modal_name_ph: "व्यक्ति या संस्था का नाम (e.g. Ujjwal Shah)",
       modal_loc_ph: "पता या स्थान (e.g. Siraha, Nepal)",
-      modal_date_ph: "दिनांक (Date)"
+      modal_date_ph: "दिनांक (Date)",
+      freq_monthly: "मासिक",
+      freq_quarterly: "त्रैमासिक",
+      freq_halfyearly: "अर्धवार्षिक",
+      freq_annually: "वार्षिक",
+      lbl_comp_freq: "चक्रवृद्धि अवधि (Compounding Frequency)"
     }
   };
 
@@ -3074,6 +3270,7 @@
     updateThemeBtnText();
     updatePresentDates();
 
+    updateLandSampleFigure();
     if (document.getElementById('tamasukResultArea').style.display === 'flex') {
       generateTamasuk();
     }
@@ -3130,9 +3327,9 @@
 
     closeDrawer();
     if (modId === 'reports') updateReportsDashboard();
-    if (modId === 'currency') convertCurrencyAdv();
+    if (modId === 'currency') syncDailyForexRates();
     
-    if (modId === 'land') setRegularSub(currentLandShape || 'rect');
+    if (modId === 'land') { setRegularSub(currentLandShape || 'rect', false); updateLandSampleFigure(); }
     if (modId === 'history') loadHistory();
   }
 
@@ -3606,16 +3803,12 @@ Date: 2026-10-02`;
     alert(isChecked ? "Notification bar Nepali date enabled!" : "Notification bar date disabled.");
   }
 
+  let widgetLanguage = 'ne';
   function setWidgetLanguage(lang) {
+    widgetLanguage = lang;
     document.getElementById('wlang-ne').classList.toggle('active', lang === 'ne');
     document.getElementById('wlang-en').classList.toggle('active', lang === 'en');
-    if (lang === 'en') {
-      document.getElementById('widgetPreviewDay').innerText = "16";
-      document.getElementById('widgetPreviewMonthYear').innerText = "Ashwin 2083 BS";
-    } else {
-      document.getElementById('widgetPreviewDay').innerText = "१६";
-      document.getElementById('widgetPreviewMonthYear').innerText = "असोज २०८३";
-    }
+    updatePresentDates();
   }
 
   // 7. Profit & Loss / Markup (Matching Image 20)
@@ -3737,7 +3930,83 @@ Date: 2026-10-02`;
     document.querySelectorAll('.landUnitTag').forEach(el => el.innerText = label);
   }
 
-  function setLandShapeMode(mode) {
+  // Reset & Clear all land measurements whenever shape option or mode changes
+  function clearLandMeasurements(resetRows = true) {
+    // Clear all regular length & breadth inputs
+    document.querySelectorAll('.regLenInput').forEach(inp => inp.value = '');
+    document.querySelectorAll('.regBrdInput').forEach(inp => inp.value = '');
+    
+    // Clear additional sides
+    const inpC = document.getElementById('inpSideC'); if (inpC) inpC.value = '';
+    const inpD = document.getElementById('inpSideD'); if (inpD) inpD.value = '';
+    const inpDiag = document.getElementById('inpSideDiag'); if (inpDiag) inpDiag.value = '';
+
+    // Clear irregular inputs
+    document.querySelectorAll('.irregLenInput').forEach(inp => inp.value = '');
+    document.querySelectorAll('.irregBrdInput').forEach(inp => inp.value = '');
+
+    // Hide previous area calculation result area
+    const resultArea = document.getElementById('landResultArea');
+    if (resultArea) resultArea.style.display = 'none';
+
+    // Reset dynamic rows back to single initial row
+    if (resetRows) {
+      const regLenContainer = document.getElementById('regLenList');
+      if (regLenContainer) {
+        regLenCount = 1;
+        const unitText = currentLandUnit === 'ft' ? (currentLang === 'en' ? 'ft' : 'फिट') : (currentLang === 'en' ? 'm' : 'मिटर');
+        regLenContainer.innerHTML = `
+          <div class="currency-input-wrap" id="regLenRow_1">
+            <span style="font-size:12px; font-weight:700; width:30px;">L1</span>
+            <input type="number" class="regLenInput" placeholder="0" />
+            <span class="landUnitTag">${unitText}</span>
+          </div>`;
+      }
+
+      const regBrdContainer = document.getElementById('regBrdList');
+      if (regBrdContainer) {
+        regBrdCount = 1;
+        const unitText = currentLandUnit === 'ft' ? (currentLang === 'en' ? 'ft' : 'फिट') : (currentLang === 'en' ? 'm' : 'मिटर');
+        regBrdContainer.innerHTML = `
+          <div class="currency-input-wrap" id="regBrdRow_1">
+            <span style="font-size:12px; font-weight:700; width:30px;">W1</span>
+            <input type="number" class="regBrdInput" placeholder="0" />
+            <span class="landUnitTag">${unitText}</span>
+          </div>`;
+      }
+
+      const irregLenContainer = document.getElementById('irregLenList');
+      if (irregLenContainer) {
+        irregLenCount = 1;
+        const unitText = currentLandUnit === 'ft' ? (currentLang === 'en' ? 'ft' : 'फिट') : (currentLang === 'en' ? 'm' : 'मिटर');
+        irregLenContainer.innerHTML = `
+          <div class="currency-input-wrap" id="irregLenRow_1">
+            <span style="font-size:12px; font-weight:700; width:30px;">L1</span>
+            <input type="number" class="irregLenInput" placeholder="0" />
+            <span class="landUnitTag">${unitText}</span>
+          </div>`;
+        const countTag = document.getElementById('irregLenCountTag');
+        if (countTag) countTag.innerText = currentLang === 'en' ? '1 Length' : '१ लम्बाइ';
+      }
+
+      const irregBrdContainer = document.getElementById('irregBrdList');
+      if (irregBrdContainer) {
+        irregBrdCount = 1;
+        const unitText = currentLandUnit === 'ft' ? (currentLang === 'en' ? 'ft' : 'फिट') : (currentLang === 'en' ? 'm' : 'मिटर');
+        irregBrdContainer.innerHTML = `
+          <div class="currency-input-wrap" id="irregBrdRow_1">
+            <span style="font-size:12px; font-weight:700; width:30px;">W1</span>
+            <input type="number" class="irregBrdInput" placeholder="0" />
+            <span class="landUnitTag">${unitText}</span>
+          </div>`;
+        const countTag = document.getElementById('irregBrdCountTag');
+        if (countTag) countTag.innerText = currentLang === 'en' ? '1 Breadth' : '१ चौडाइ';
+      }
+    }
+  }
+
+  function setLandShapeMode(mode, clearValues = true) {
+    const isDifferent = (currentLandMode !== mode);
     currentLandMode = mode;
     document.getElementById('btnLandReg').classList.toggle('active', mode === 'regular');
     document.getElementById('btnLandIrreg').classList.toggle('active', mode === 'irregular');
@@ -3745,16 +4014,22 @@ Date: 2026-10-02`;
     document.getElementById('landRegularWrap').style.display = mode === 'regular' ? 'flex' : 'none';
     document.getElementById('landIrregularWrap').style.display = mode === 'irregular' ? 'flex' : 'none';
 
+    if (clearValues && isDifferent) {
+      clearLandMeasurements(true);
+    }
+
     if (mode === 'irregular') {
       document.getElementById('landInfoTitle').innerText = currentLang === 'en' ? 'Irregular Plot' : 'अनियमित जग्गा';
       document.getElementById('landInfoDesc').innerText = currentLang === 'en' ? 'Measure lengths & breadths at multiple points - more readings = more accuracy' : 'धेरै ठाउँमा लम्बाइ र चौडाइ नाप्नुहोस् (औसत लम्बाइ × औसत चौडाइ)';
       document.getElementById('landInfoFormula').innerText = 'Area = Avg(L1, L2...) × Avg(W1, W2...)';
     } else {
-      setRegularSub(currentLandShape);
+      setRegularSub(currentLandShape, false);
     }
+    updateLandSampleFigure();
   }
 
-  function setRegularSub(shape) {
+  function setRegularSub(shape, clearValues = true) {
+    const isDifferent = (currentLandShape !== shape);
     currentLandShape = shape;
     ['Rect', 'Diag', 'Tri', 'Trap'].forEach(s => {
       const btn = document.getElementById('shpCard' + s);
@@ -3803,9 +4078,15 @@ Date: 2026-10-02`;
       wrapDiag.style.display = 'none';
       document.getElementById('lblSideC').innerText = "उचाइ (h)";
     }
-  }
 
-  // Dynamic Add / Remove for Regular Length & Breadth
+    // Clear measurements when option is changed
+    if (clearValues && isDifferent) {
+      clearLandMeasurements(true);
+    }
+
+    updateLandSampleFigure();
+  }
+// Dynamic Add / Remove for Regular Length & Breadth
   let regLenCount = 1;
   let regBrdCount = 1;
 
@@ -4241,10 +4522,15 @@ function setAdvCalcCategory(cat) {
 
 
   // 10. Advanced Currency Converter
-  const nprRates = {
-    USD: 154.08, INR: 1.60, EUR: 173.61, GBP: 203.67,
-    AED: 42.02, SAR: 41.15, AUD: 106.84, NPR: 1.00
+  // 10. Advanced Dynamic Daily Currency Converter (Auto-syncs daily & allows custom edits)
+  const defaultNprRates = {
+    USD: 135.20, INR: 1.60, EUR: 147.80, GBP: 176.40,
+    AED: 36.81, SAR: 36.02, AUD: 88.50, QAR: 37.10,
+    MYR: 31.40, KWD: 441.20, JPY: 9.15, NPR: 1.00
   };
+
+  // Load rates from localStorage if saved or use default
+  let nprRates = JSON.parse(localStorage.getItem('forex_active_rates')) || Object.assign({}, defaultNprRates);
 
   function swapCurrencies() {
     const fromSel = document.getElementById('currFrom');
@@ -4252,9 +4538,7 @@ function setAdvCalcCategory(cat) {
     const temp = fromSel.value;
     fromSel.value = toSel.value;
     toSel.value = temp;
-    convertCurrencyAdv();
-  setAdvCalcCategory('len');
-  setRegularSub('rect');
+    syncDailyForexRates();
   }
 
   function convertCurrencyAdv() {
@@ -4262,22 +4546,164 @@ function setAdvCalcCategory(cat) {
     const to = document.getElementById('currTo').value;
     const amt = parseFloat(document.getElementById('currAdvAmount').value) || 0;
 
-    const nprValue = amt * nprRates[from];
-    const converted = nprValue / nprRates[to];
+    const rateFrom = nprRates[from] || 1;
+    const rateTo = nprRates[to] || 1;
+
+    const nprValue = amt * rateFrom;
+    const converted = nprValue / rateTo;
 
     document.getElementById('currConvertedResult').innerText = `${converted.toFixed(2)} ${to}`;
-    const rateRatio = (nprRates[from] / nprRates[to]).toFixed(4);
-    document.getElementById('currExchangeRateTag').innerText = `1 ${from} = ${rateRatio} ${to}`;
+    const rateRatio = (rateFrom / rateTo).toFixed(4);
+    document.getElementById('currExchangeRateTag').innerText = `1 ${from} = ${rateRatio} ${to} (NPR Base: रु ${rateFrom.toFixed(2)})`;
 
+    renderForexRateList();
+  }
+
+  function renderForexRateList() {
     const list = document.getElementById('currTableList');
+    if (!list) return;
     list.innerHTML = '';
+    
+    const flagMap = {
+      USD: '🇺🇸', INR: '🇮🇳', EUR: '🇪🇺', GBP: '🇬🇧',
+      AED: '🇦🇪', SAR: '🇸🇦', AUD: '🇦🇺', QAR: '🇶🇦',
+      MYR: '🇲🇾', KWD: '🇰🇼', JPY: '🇯🇵'
+    };
+
     for (const [code, r] of Object.entries(nprRates)) {
       if (code === 'NPR') continue;
       const row = document.createElement('div');
-      row.style = "display:flex; justify-content:space-between; padding:10px 12px; background:var(--input-bg); border-radius:10px; font-size:12.5px;";
-      row.innerHTML = `<span style="display:flex; align-items:center; gap:6px;"><strong>${code}</strong></span><span style="font-weight:700;">1 ${code} = रु ${r.toFixed(2)}</span>`;
+      row.style = "display:flex; justify-content:space-between; align-items:center; padding:10px 12px; background:var(--input-bg); border-radius:10px; font-size:12.5px; border:1px solid var(--card-border);";
+      row.innerHTML = `
+        <span style="display:flex; align-items:center; gap:6px;">
+          <span>${flagMap[code] || '🌐'}</span>
+          <strong>1 ${code}</strong>
+        </span>
+        <span style="font-weight:700; color:#059669;">रु ${r.toFixed(2)}</span>
+      `;
       list.appendChild(row);
     }
+  }
+
+  // Toggle manual rate editor
+  let isRateEditOpen = false;
+  function toggleCustomRateEditor() {
+    const box = document.getElementById('customRateEditorBox');
+    const btn = document.getElementById('btnToggleRateEdit');
+    isRateEditOpen = !isRateEditOpen;
+    box.style.display = isRateEditOpen ? 'flex' : 'none';
+    btn.innerText = isRateEditOpen ? '✕ बन्द (Close)' : '✏️ दर सम्पादन (Edit)';
+
+    if (isRateEditOpen) {
+      const grid = document.getElementById('rateInputsGrid');
+      grid.innerHTML = '';
+      for (const [code, r] of Object.entries(nprRates)) {
+        if (code === 'NPR') continue;
+        const div = document.createElement('div');
+        div.style = "display:flex; align-items:center; gap:4px; font-size:11px;";
+        div.innerHTML = `
+          <span style="width:34px; font-weight:700;">${code}:</span>
+          <input type="number" step="0.01" id="customRateInp_${code}" value="${r.toFixed(2)}" class="custom-input" style="padding:4px 6px; font-size:11px; text-align:left;" />
+        `;
+        grid.appendChild(div);
+      }
+    }
+  }
+
+  function saveCustomForexRates() {
+    for (const code of Object.keys(nprRates)) {
+      if (code === 'NPR') continue;
+      const inp = document.getElementById(`customRateInp_${code}`);
+      if (inp) {
+        const val = parseFloat(inp.value);
+        if (!isNaN(val) && val > 0) {
+          nprRates[code] = val;
+        }
+      }
+    }
+    localStorage.setItem('forex_active_rates', JSON.stringify(nprRates));
+    localStorage.setItem('forex_rates_mode', 'custom');
+    
+    document.getElementById('forexLiveBadge').innerHTML = `
+      <span style="width:6px; height:6px; border-radius:50%; background:#f59e0b; display:inline-block;"></span>
+      आफ्नो दर (Custom Saved Rates)
+    `;
+    toggleCustomRateEditor();
+    syncDailyForexRates();
+    alert("दर सुरक्षित गरियो !");
+  }
+
+  // Live Daily Rate Auto-fetch from Free Exchange Rate API
+  async function syncDailyForexRates(isManualClick) {
+    const todayStr = new Date().toISOString().split('T')[0];
+    const lastFetchDate = localStorage.getItem('forex_last_fetch_date');
+    const isCustom = localStorage.getItem('forex_rates_mode') === 'custom';
+
+    if (!isManualClick && lastFetchDate === todayStr && !isCustom) {
+      // Already fetched today
+      syncDailyForexRates();
+      return;
+    }
+
+    const badge = document.getElementById('forexLiveBadge');
+    if (badge && isManualClick) badge.innerText = "दर अपडेट हुँदैछ (Updating...)";
+
+    try {
+      // Free CORS-enabled open currency API based on USD
+      const res = await fetch('https://open.er-api.com/v6/latest/USD');
+      if (!res.ok) throw new Error("Network response not ok");
+      const data = await res.json();
+
+      if (data && data.rates && data.rates.NPR) {
+        const usdNpr = data.rates.NPR;
+        
+        // Calculate each currency's rate in NPR: (1 / rateInUSD) * usdNpr
+        const updated = { NPR: 1.00 };
+        for (const code of ['USD', 'INR', 'EUR', 'GBP', 'AED', 'SAR', 'AUD', 'QAR', 'MYR', 'KWD', 'JPY']) {
+          if (code === 'USD') {
+            updated.USD = parseFloat(usdNpr.toFixed(2));
+          } else if (code === 'INR') {
+            // INR pegged officially at 1.60 NPR
+            updated.INR = 1.60;
+          } else if (code === 'JPY') {
+            // JPY 10 units
+            const jpyRate = data.rates['JPY'] ? (usdNpr / data.rates['JPY']) * 10 : 9.15;
+            updated.JPY = parseFloat(jpyRate.toFixed(2));
+          } else if (data.rates[code]) {
+            const singleRate = usdNpr / data.rates[code];
+            updated[code] = parseFloat(singleRate.toFixed(2));
+          } else {
+            updated[code] = defaultNprRates[code];
+          }
+        }
+
+        nprRates = updated;
+        localStorage.setItem('forex_active_rates', JSON.stringify(nprRates));
+        localStorage.setItem('forex_last_fetch_date', todayStr);
+        localStorage.removeItem('forex_rates_mode');
+
+        if (badge) {
+          badge.innerHTML = `
+            <span style="width:6px; height:6px; border-radius:50%; background:#10b981; display:inline-block;"></span>
+            आजको दैनिक दर (Live Today's Rates)
+          `;
+        }
+        const dateTag = document.getElementById('forexSyncDateTag');
+        if (dateTag) dateTag.innerText = `अपडेट: ${todayStr}`;
+        if (isManualClick) alert("आजको विदेशी विनिमय दर सफलतापूर्वक अपडेट भयो !");
+      }
+    } catch (err) {
+      console.log("Using cached/fallback offline rates:", err);
+      if (badge) {
+        badge.innerHTML = `
+          <span style="width:6px; height:6px; border-radius:50%; background:#64748b; display:inline-block;"></span>
+          अफलाइन दर (Offline Rates)
+        `;
+      }
+      if (isManualClick) alert("इन्टरनेट जडान नभएकोले भण्डारित दर प्रयोग गरिएको छ।");
+    }
+
+    syncDailyForexRates();
   }
 
   // 11. Gold
@@ -4403,14 +4829,29 @@ function setAdvCalcCategory(cat) {
 
   function confirmSaveRecord() {
     const name = document.getElementById('savePersonName').value.trim() || 'नाम नखुलेको';
+    const phoneInput = document.getElementById('savePersonPhone').value.trim();
     const loc = document.getElementById('savePersonLoc').value.trim() || 'सिरहा';
     const dateStr = document.getElementById('saveCustomDate').value.trim() || (activeCalMode === 'BS' ? '२०८३-०६-१६' : '2026-10-02');
+
+    // WhatsApp number character validation:
+    // Optional (with or without), but if provided, must only contain numbers and optionally leading '+' (no letters allowed!)
+    if (phoneInput !== '') {
+      const phoneRegex = /^\+?[0-9]{7,15}$/;
+      if (!phoneRegex.test(phoneInput) || /[a-zA-Z]/.test(phoneInput)) {
+        alert(currentLang === 'en'
+          ? "Invalid WhatsApp Number! It must contain only digits and an optional leading '+', without any letters or special symbols."
+          : "कृपया सही WhatsApp नम्बर लेख्नुहोस् ! यसमा अङ्क (numbers) र सुरुमा '+' मात्र राख्न सकिन्छ, कुनै अक्षर (letters) वा अन्य चिन्ह मान्य छैन।");
+        document.getElementById('savePersonPhone').focus();
+        return;
+      }
+    }
 
     const records = JSON.parse(localStorage.getItem('calc_full_records') || '[]');
     records.unshift({
       title: tempSaveTitle,
       val: tempSaveVal,
       person: name,
+      phone: phoneInput,
       location: loc,
       date: dateStr,
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
@@ -4418,7 +4859,7 @@ function setAdvCalcCategory(cat) {
 
     localStorage.setItem('calc_full_records', JSON.stringify(records.slice(0, 50)));
     closeSaveModal();
-    alert("विवरण सुरक्षित गरियो !");
+    alert(currentLang === 'en' ? "Record successfully saved to history!" : "विवरण सफलतापूर्वक सुरक्षित गरियो !");
   }
 
   function loadHistory() {
@@ -4431,25 +4872,49 @@ function setAdvCalcCategory(cat) {
       return;
     }
 
-    records.forEach(item => {
+    records.forEach((item, idx) => {
       const card = document.createElement('div');
       card.className = 'history-card';
+      const cleanPhone = (item.phone || '').replace(/[^0-9]/g, '');
+      const waLink = cleanPhone ? `https://wa.me/${cleanPhone.length === 10 ? '977' + cleanPhone : cleanPhone}` : '';
+
       card.innerHTML = `
         <div class="history-header">
           <div>
             <div style="font-weight:700; font-size:14px; color:var(--text);">${item.person}</div>
             <div style="font-size:12px; color:var(--accent); font-weight:600;">${item.title}</div>
           </div>
-          <div style="font-weight:800; color:#059669; font-size:15px;">${item.val}</div>
+          <div style="text-align:right;">
+            <div style="font-weight:800; color:#059669; font-size:15px;">${item.val}</div>
+            ${item.phone ? `<div style="font-size:11px; color:#10b981; font-weight:600; margin-top:2px;">📱 ${item.phone}</div>` : ''}
+          </div>
         </div>
-        <div class="history-meta">
-          <span>📍 ${item.location}</span>
-          <span>📅 ${item.date}</span>
-          <span>⏰ ${item.time}</span>
+        <div class="history-meta" style="align-items:center; justify-content:space-between;">
+          <div style="display:flex; gap:10px; flex-wrap:wrap; font-size:11px;">
+            <span>📍 ${item.location}</span>
+            <span>📅 ${item.date}</span>
+            <span>⏰ ${item.time}</span>
+          </div>
+          <div style="display:flex; gap:6px;">
+            ${waLink ? `<a href="${waLink}" target="_blank" class="dev-badge wa" style="padding:4px 8px; font-size:11px; text-decoration:none;">💬 WhatsApp</a>` : ''}
+            <button onclick="deleteSingleHistory(${idx})" style="background:rgba(239, 68, 68, 0.1); border:1px solid rgba(239, 68, 68, 0.25); color:#ef4444; border-radius:8px; padding:3px 7px; font-size:11px; cursor:pointer;" title="Delete this entry">✕</button>
+          </div>
         </div>
       `;
       container.appendChild(card);
     });
+  }
+
+  function deleteSingleHistory(index) {
+    let records = JSON.parse(localStorage.getItem('calc_full_records') || '[]');
+    if (confirm(currentLang === 'en' ? "Delete this history record?" : "के तपाईं यो विवरण मेटाउन चाहनुहुन्छ?")) {
+      records.splice(index, 1);
+      localStorage.setItem('calc_full_records', JSON.stringify(records));
+      loadHistory();
+      if (document.getElementById('module-reports').classList.contains('active')) {
+        updateReportsDashboard();
+      }
+    }
   }
 
   function clearHistory() {
@@ -4469,15 +4934,54 @@ function setAdvCalcCategory(cat) {
       return;
     }
 
-    const message = `*Namaste Ujjwalwebdevelopment,*%0A%0AFrom: *${name}* (${loc})%0ASuggestion:%0A"${encodeURIComponent(text)}"`;
+    const message = `*Namaste Ujjwal Shah,*%0A%0AFrom: *${name}* (${loc})%0ASuggestion:%0A"${encodeURIComponent(text)}"`;
     window.open(`https://wa.me/9779805986777?text=${message}`, '_blank');
   }
 
   
-  // Dynamic Real-time Present BS and AD Date Display
+  // Nepali digits converter helper
+  function toNepaliDigits(num) {
+    const nepaliNums = ['०', '१', '२', '३', '४', '५', '६', '७', '८', '९'];
+    return String(num).split('').map(c => nepaliNums[parseInt(c)] || c).join('');
+  }
+
+  // Calculate dynamic Bikram Sambat (BS) date from Gregorian (AD) Date
+  function getDynamicBsDate(adDate) {
+    // Reference point: 2026-10-02 = 2083-06-16 (16 Ashwin 2083 BS)
+    const anchorAd = new Date(2026, 9, 2); // Month is 0-indexed (9 = Oct)
+    const diffDays = Math.round((adDate.getTime() - anchorAd.getTime()) / (1000 * 60 * 60 * 24));
+    
+    // Start from Ashwin 16, 2083
+    let bsYear = 2083;
+    let bsMonth = 6; // Ashwin
+    let bsDay = 16 + diffDays;
+
+    // Normalization table for BS months
+    const bsDaysList = [31, 31, 32, 32, 31, 30, 30, 30, 29, 30, 30, 30]; // Baishakh to Chaitra
+
+    while (bsDay > bsDaysList[bsMonth - 1]) {
+      bsDay -= bsDaysList[bsMonth - 1];
+      bsMonth++;
+      if (bsMonth > 12) {
+        bsMonth = 1;
+        bsYear++;
+      }
+    }
+    while (bsDay < 1) {
+      bsMonth--;
+      if (bsMonth < 1) {
+        bsMonth = 12;
+        bsYear--;
+      }
+      bsDay += bsDaysList[bsMonth - 1];
+    }
+
+    return { year: bsYear, month: bsMonth, day: bsDay };
+  }
+
+  // Dynamic Real-time Present BS and AD Date & Dynamic Calendar Icon Display
   function updatePresentDates() {
     const now = new Date();
-    // Default fallback to 2026-10-02 if running in simulated context or current time
     const day = now.getDate();
     const year = now.getFullYear();
     const month = now.getMonth();
@@ -4495,30 +4999,59 @@ function setAdvCalcCategory(cat) {
       hi: ['रविवार', 'सोमवार', 'मंगलवार', 'बुधवार', 'गुरुवार', 'शुक्रवार', 'शनिवार']
     };
 
-    const bsCurrent = {
-      ne: "१६ असोज २०८३ बि.सं.",
-      en: "16 Ashwin 2083 BS",
-      hi: "१६ अश्विन २०८३ वि.सं."
+    const bsMonthNames = {
+      ne: ['बैशाख', 'जेठ', 'असार', 'श्रावण', 'भाद्र', 'असोज', 'कार्तिक', 'मंसिर', 'पौष', 'माघ', 'फाल्गुन', 'चैत'],
+      en: ['Baishakh', 'Jestha', 'Ashadh', 'Shrawan', 'Bhadra', 'Ashwin', 'Kartik', 'Mangsir', 'Poush', 'Magh', 'Falgun', 'Chaitra'],
+      hi: ['वैशाख', 'ज्येष्ठ', 'आषाढ़', 'श्रावण', 'भाद्र', 'अश्विन', 'कार्तिक', 'मार्गशीर्ष', 'पौष', 'माघ', 'फाल्गुन', 'चैत्र']
     };
 
-    const mName = adMonthNames[currentLang][month] || 'Oct';
-    const wName = adDaysOfWeek[currentLang][weekday] || 'Friday';
+    // Calculate dynamic BS date from current date
+    const bsDate = getDynamicBsDate(now);
+    const bsMName = bsMonthNames[currentLang][bsDate.month - 1] || 'असोज';
+    const mName = adMonthNames[currentLang][month] || 'अक्टोबर';
+    const wName = adDaysOfWeek[currentLang][weekday] || 'आइतबार';
 
-    // Format AD Date
+    // Format strings (Clean, without hardcoded static July 17 calendar emoji!)
+    let bsFormatted = "";
     let adFormatted = "";
+
     if (currentLang === 'en') {
-      adFormatted = `📅 ${day} ${mName} ${year}, ${wName} (AD)`;
+      bsFormatted = `${bsDate.day} ${bsMName} ${bsDate.year} BS`;
+      adFormatted = `${day} ${mName} ${year}, ${wName} (AD)`;
     } else if (currentLang === 'hi') {
-      adFormatted = `📅 ${day} ${mName} ${year}, ${wName} (ई.सं.)`;
+      bsFormatted = `${toNepaliDigits(bsDate.day)} ${bsMName} ${toNepaliDigits(bsDate.year)} वि.सं.`;
+      adFormatted = `${toNepaliDigits(day)} ${mName} ${toNepaliDigits(year)}, ${wName} (ई.सं.)`;
     } else {
-      adFormatted = `📅 ${day} ${mName} २०२६, ${wName} (ई.सं.)`;
+      bsFormatted = `${toNepaliDigits(bsDate.day)} ${bsMName} ${toNepaliDigits(bsDate.year)} बि.सं.`;
+      adFormatted = `${toNepaliDigits(day)} ${mName} ${toNepaliDigits(year)}, ${wName} (ई.सं.)`;
     }
 
     const bsEl = document.getElementById('currentDateStr');
-    if (bsEl) bsEl.innerText = bsCurrent[currentLang] || bsCurrent.ne;
+    if (bsEl) bsEl.innerText = bsFormatted;
 
     const adEl = document.getElementById('currentAdDateStr');
     if (adEl) adEl.innerText = adFormatted;
+
+    // --- DYNAMIC REAL-TIME CALENDAR ICONS: UPDATE EVERY DAY WITH TODAY'S REAL DATE ---
+    const topCalDay = document.getElementById('topNavCalDayText');
+    const stripMonthBar = document.getElementById('dynCalMonthTopBar');
+    const stripDayNumber = document.getElementById('dynCalDayMainNumber');
+
+    // 1. Top action button calendar day
+    const displayDayNum = activeCalMode === 'BS' ? bsDate.day : day;
+    const formattedIconDay = currentLang === 'en' ? String(displayDayNum) : toNepaliDigits(displayDayNum);
+    if (topCalDay) {
+      topCalDay.textContent = formattedIconDay;
+    }
+
+    // 2. Real-time desk calendar badge in date strip
+    if (stripMonthBar) {
+      const monthShort = activeCalMode === 'BS' ? (currentLang === 'en' ? 'ASW' : 'असोज') : (currentLang === 'en' ? 'OCT' : 'अक्टोबर');
+      stripMonthBar.innerText = monthShort;
+    }
+    if (stripDayNumber) {
+      stripDayNumber.innerText = formattedIconDay;
+    }
 
     // Live clock update
     const timeEl = document.getElementById('liveTimeStr');
@@ -4526,18 +5059,28 @@ function setAdvCalcCategory(cat) {
       timeEl.innerText = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     }
 
-    // Update Widget settings preview card
+    // Update Widget settings preview card with real-time dynamic date
+    const wDay = document.getElementById('widgetPreviewDay');
+    const isWEn = (typeof widgetLanguage !== 'undefined' ? widgetLanguage : currentLang) === 'en';
+    if (wDay) {
+      wDay.innerText = isWEn ? String(bsDate.day) : toNepaliDigits(bsDate.day);
+    }
+    const wMY = document.getElementById('widgetPreviewMonthYear');
+    if (wMY) {
+      const widgetMonthName = bsMonthNames[isWEn ? 'en' : 'ne'][bsDate.month - 1] || bsMName;
+      wMY.innerText = `${widgetMonthName} ${isWEn ? bsDate.year : toNepaliDigits(bsDate.year)} BS`;
+    }
     const wSub = document.getElementById('widgetPreviewSub');
     if (wSub) {
       wSub.innerText = `${wName} | ${day} ${mName} ${year} AD`;
     }
   }
-
-  // Initialize
+// Initialize
   setCalMode('BS');
-  convertCurrencyAdv();
+  syncDailyForexRates();
   setAdvCalcCategory('len');
-  setRegularSub('rect');
+  setRegularSub('rect', false);
+  updateLandSampleFigure();
   updatePresentDates();
   setInterval(updatePresentDates, 30000);
 
@@ -4652,7 +5195,7 @@ function setAdvCalcCategory(cat) {
             `• *कुल चुक्ता गर्नुपर्ने रकम:* ${encodeURIComponent(total)}%0A` +
             `━━━━━━━━━━━━━━━━━━%0A` +
             `_मिति: ${encodeURIComponent(todayDate)}_ %0A` +
-            `*Ujjwalwebdevelopment • Siraha (9805986777)*`;
+            `*Ujjwal Shah • Siraha (9805986777)*`;
     } else if (activeWAModule === 'simple') {
       const p = document.getElementById('sResPrincipalVal')?.innerText || 'रु ०';
       const r = document.getElementById('sResRateVal')?.innerText || '०%';
@@ -4669,7 +5212,7 @@ function setAdvCalcCategory(cat) {
             `• *कुल चुक्ता गर्नुपर्ने रकम:* ${encodeURIComponent(total)}%0A` +
             `━━━━━━━━━━━━━━━━━━%0A` +
             `_मिति: ${encodeURIComponent(todayDate)}_ %0A` +
-            `*Ujjwalwebdevelopment • Siraha (9805986777)*`;
+            `*Ujjwal Shah • Siraha (9805986777)*`;
     } else if (activeWAModule === 'sayakada') {
       const p = "रु " + (parseFloat(document.getElementById('sayakadaPrincipal')?.value) || 0).toLocaleString();
       const mInt = document.getElementById('sayakadaMonthlyInterest')?.innerText || 'रु ०';
@@ -4687,7 +5230,7 @@ function setAdvCalcCategory(cat) {
             `• *कुल फिर्ता गर्नुपर्ने रकम:* ${encodeURIComponent(total)}%0A` +
             `━━━━━━━━━━━━━━━━━━%0A` +
             `_मिति: ${encodeURIComponent(todayDate)}_ %0A` +
-            `*Ujjwalwebdevelopment • Siraha (9805986777)*`;
+            `*Ujjwal Shah • Siraha (9805986777)*`;
     }
     return msg;
   }
@@ -4725,6 +5268,157 @@ function setAdvCalcCategory(cat) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+
+
+  // Update Measurement Sample Figure Diagram for All Land Shapes (Matching Image 1)
+  function updateLandSampleFigure() {
+    const wrap = document.getElementById('landSampleDiagramWrap');
+    const labelEl = document.getElementById('landSampleFigLabel');
+    if (!wrap) return;
+
+    const strokeColor = '#3b82f6';
+    const dashedColor = '#10b981';
+    const textColor = 'var(--text)';
+    const mutedColor = 'var(--text-muted)';
+    const dotColor = '#6366f1';
+
+    let svgHtml = '';
+
+    if (currentLandMode === 'irregular') {
+      if (labelEl) labelEl.innerText = currentLang === 'en' ? 'Irregular Plot: Average Length & Breadth' : 'अनियमित जग्गा: औसत लम्बाइ र चौडाइ नाप';
+      svgHtml = `
+        <svg viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Irregular Boundary -->
+          <polygon points="35,42 110,22 220,35 235,105 130,120 30,95" stroke="${strokeColor}" stroke-width="2.5" fill="rgba(59, 130, 246, 0.08)" stroke-linejoin="round" />
+          
+          <!-- Corner dots -->
+          <circle cx="35" cy="42" r="3.5" fill="${dotColor}" />
+          <circle cx="110" cy="22" r="3.5" fill="${dotColor}" />
+          <circle cx="220" cy="35" r="3.5" fill="${dotColor}" />
+          <circle cx="235" cy="105" r="3.5" fill="${dotColor}" />
+          <circle cx="130" cy="120" r="3.5" fill="${dotColor}" />
+          <circle cx="30" cy="95" r="3.5" fill="${dotColor}" />
+
+          <!-- Length measurement lines (L1, L2) -->
+          <line x1="38" y1="58" x2="226" y2="58" stroke="${dashedColor}" stroke-width="2" stroke-dasharray="4 3" />
+          <text x="130" y="52" font-size="11.5" font-weight="800" fill="${dashedColor}" text-anchor="middle">L1 (लम्बाइ १)</text>
+
+          <line x1="33" y1="84" x2="192" y2="84" stroke="${dashedColor}" stroke-width="2" stroke-dasharray="4 3" />
+          <text x="110" y="78" font-size="11.5" font-weight="800" fill="${dashedColor}" text-anchor="middle">L2 (लम्बाइ २)</text>
+
+          <!-- Breadth measurement lines (W1, W2) -->
+          <line x1="85" y1="28" x2="85" y2="105" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 3" />
+          <text x="75" y="68" font-size="11.5" font-weight="800" fill="#f59e0b" text-anchor="end">W1</text>
+
+          <line x1="175" y1="32" x2="175" y2="114" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 3" />
+          <text x="187" y="72" font-size="11.5" font-weight="800" fill="#f59e0b" text-anchor="start">W2</text>
+        </svg>
+      `;
+    } else if (currentLandShape === 'rect') {
+      if (labelEl) labelEl.innerText = currentLang === 'en' ? 'Rectangle: Length (L) × Breadth (W)' : 'आयत / वर्गाकार: लम्बाइ (L) × चौडाइ (W)';
+      svgHtml = `
+        <svg viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rect Body -->
+          <rect x="55" y="28" width="150" height="84" rx="4" stroke="${strokeColor}" stroke-width="2.5" fill="rgba(59, 130, 246, 0.08)" />
+          
+          <!-- Corner dots -->
+          <circle cx="55" cy="28" r="4" fill="${dotColor}" />
+          <circle cx="205" cy="28" r="4" fill="${dotColor}" />
+          <circle cx="205" cy="112" r="4" fill="${dotColor}" />
+          <circle cx="55" cy="112" r="4" fill="${dotColor}" />
+
+          <!-- Right Angle Marks -->
+          <path d="M 55,38 L 65,38 L 65,28" stroke="${mutedColor}" stroke-width="1.3" fill="none" />
+          <path d="M 195,28 L 195,38 L 205,38" stroke="${mutedColor}" stroke-width="1.3" fill="none" />
+          <path d="M 205,102 L 195,102 L 195,112" stroke="${mutedColor}" stroke-width="1.3" fill="none" />
+          <path d="M 55,102 L 65,102 L 65,112" stroke="${mutedColor}" stroke-width="1.3" fill="none" />
+
+          <!-- Labels -->
+          <text x="130" y="20" font-size="12.5" font-weight="800" fill="${textColor}" text-anchor="middle">L (लम्बाइ - Top)</text>
+          <text x="130" y="128" font-size="12.5" font-weight="800" fill="${textColor}" text-anchor="middle">L (लम्बाइ - Bottom)</text>
+          <text x="36" y="74" font-size="12.5" font-weight="800" fill="${textColor}" text-anchor="middle">W (Left)</text>
+          <text x="224" y="74" font-size="12.5" font-weight="800" fill="${textColor}" text-anchor="middle">W (Right)</text>
+        </svg>
+      `;
+    } else if (currentLandShape === 'diag') {
+      if (labelEl) labelEl.innerText = currentLang === 'en' ? '4-Sided Field: Sides A, B, C, D & Diagonal (d)' : '४ भुजा भएको जग्गा: भुजा A, B, C, D र कर्ण (विकर्ण d)';
+      svgHtml = `
+        <svg viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 4-Side Polygon Body -->
+          <polygon points="60,30 200,34 220,114 42,108" stroke="${strokeColor}" stroke-width="2.5" fill="rgba(59, 130, 246, 0.08)" stroke-linejoin="round" />
+          
+          <!-- Diagonal (d) Dashed Line with accent -->
+          <line x1="42" y1="108" x2="200" y2="34" stroke="${dashedColor}" stroke-width="2.2" stroke-dasharray="5 4" />
+          
+          <!-- Corner dots -->
+          <circle cx="60" cy="30" r="4" fill="${dotColor}" />
+          <circle cx="200" cy="34" r="4" fill="${dotColor}" />
+          <circle cx="220" cy="114" r="4" fill="${dotColor}" />
+          <circle cx="42" cy="108" r="4" fill="${dotColor}" />
+
+          <!-- Labels (Matching Image 1: A, B, C, D, d) -->
+          <text x="130" y="22" font-size="13" font-weight="900" fill="${textColor}" text-anchor="middle">A (Top)</text>
+          <text x="232" y="78" font-size="13" font-weight="900" fill="${textColor}" text-anchor="start">B (Right)</text>
+          <text x="130" y="130" font-size="13" font-weight="900" fill="${textColor}" text-anchor="middle">C (Bottom)</text>
+          <text x="24" y="75" font-size="13" font-weight="900" fill="${textColor}" text-anchor="end">D (Left)</text>
+          
+          <!-- Diagonal badge -->
+          <rect x="105" y="58" width="56" height="20" rx="6" fill="rgba(16, 185, 129, 0.18)" stroke="${dashedColor}" stroke-width="1.2" />
+          <text x="133" y="72" font-size="11" font-weight="800" fill="${dashedColor}" text-anchor="middle">d (कर्ण)</text>
+        </svg>
+      `;
+    } else if (currentLandShape === 'tri') {
+      if (labelEl) labelEl.innerText = currentLang === 'en' ? 'Triangle: Sides A, B, C' : 'त्रिभुज: तीन भुजा A, B, C';
+      svgHtml = `
+        <svg viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triangle Body -->
+          <polygon points="130,22 225,114 35,114" stroke="${strokeColor}" stroke-width="2.5" fill="rgba(59, 130, 246, 0.08)" stroke-linejoin="round" />
+          
+          <!-- Corner dots -->
+          <circle cx="130" cy="22" r="4" fill="${dotColor}" />
+          <circle cx="225" cy="114" r="4" fill="${dotColor}" />
+          <circle cx="35" cy="114" r="4" fill="${dotColor}" />
+
+          <!-- Labels -->
+          <text x="70" y="65" font-size="13" font-weight="900" fill="${textColor}" text-anchor="end">Side A (बायाँ)</text>
+          <text x="190" y="65" font-size="13" font-weight="900" fill="${textColor}" text-anchor="start">Side B (दायाँ)</text>
+          <text x="130" y="132" font-size="13" font-weight="900" fill="${textColor}" text-anchor="middle">Side C (आधार / Base)</text>
+        </svg>
+      `;
+    } else if (currentLandShape === 'trap') {
+      if (labelEl) labelEl.innerText = currentLang === 'en' ? 'Trapezoid: Bases A & C, Height (h)' : 'ट्रापिजियम: समानान्तर भुजा A र C, लम्ब उचाइ (h)';
+      svgHtml = `
+        <svg viewBox="0 0 260 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Trapezoid Body -->
+          <polygon points="75,30 185,30 225,114 35,114" stroke="${strokeColor}" stroke-width="2.5" fill="rgba(59, 130, 246, 0.08)" stroke-linejoin="round" />
+          
+          <!-- Vertical Height Line (h) -->
+          <line x1="95" y1="30" x2="95" y2="114" stroke="${dashedColor}" stroke-width="2" stroke-dasharray="4 3" />
+          <!-- Right angle mark at height base -->
+          <path d="M 95,104 L 105,104 L 105,114" stroke="${mutedColor}" stroke-width="1.3" fill="none" />
+
+          <!-- Corner dots -->
+          <circle cx="75" cy="30" r="4" fill="${dotColor}" />
+          <circle cx="185" cy="30" r="4" fill="${dotColor}" />
+          <circle cx="225" cy="114" r="4" fill="${dotColor}" />
+          <circle cx="35" cy="114" r="4" fill="${dotColor}" />
+
+          <!-- Labels -->
+          <text x="130" y="20" font-size="12.5" font-weight="800" fill="${textColor}" text-anchor="middle">A (माथिल्लो Base)</text>
+          <text x="130" y="132" font-size="12.5" font-weight="800" fill="${textColor}" text-anchor="middle">C (तल्लो Base)</text>
+          <text x="40" y="75" font-size="12" font-weight="800" fill="${textColor}" text-anchor="end">D</text>
+          <text x="220" y="75" font-size="12" font-weight="800" fill="${textColor}" text-anchor="start">B</text>
+          
+          <!-- Height badge -->
+          <rect x="100" y="64" width="46" height="20" rx="6" fill="rgba(16, 185, 129, 0.18)" stroke="${dashedColor}" stroke-width="1.2" />
+          <text x="123" y="78" font-size="11" font-weight="800" fill="${dashedColor}" text-anchor="middle">h (उचाइ)</text>
+        </svg>
+      `;
+    }
+
+    wrap.innerHTML = svgHtml;
+  }
+
 </script>
 
   <!-- Floating Action Button: Opens Advanced Calculator (Image 29 bottom right) -->
@@ -4748,7 +5442,7 @@ function setAdvCalcCategory(cat) {
       <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(239, 68, 68, 0.12); color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 20px;">⚠️</div>
       <div>
         <div style="font-size: 16px; font-weight: 700; color: var(--text);" id="confirmModalTitle">एप रिसेट (Reset App)</div>
-        <div style="font-size: 11.5px; color: var(--text-muted);">Ujjwalwebdevelopment</div>
+        <div style="font-size: 11.5px; color: var(--text-muted);">Ujjwal Shah</div>
       </div>
     </div>
     <div style="font-size: 13.5px; color: var(--text); line-height: 1.6; padding: 4px 0;" id="confirmModalMsg">
